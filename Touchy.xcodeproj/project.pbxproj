@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		167EC31624C8C6BB009C4647 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC31524C8C6BB009C4647 /* AppDelegate.swift */; };
+		167EC31824C8C6BB009C4647 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC31724C8C6BB009C4647 /* ContentView.swift */; };
+		167EC31A24C8C6BE009C4647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167EC31924C8C6BE009C4647 /* Assets.xcassets */; };
+		167EC31D24C8C6BE009C4647 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167EC31C24C8C6BE009C4647 /* Preview Assets.xcassets */; };
+		167EC32024C8C6BE009C4647 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167EC31E24C8C6BE009C4647 /* Main.storyboard */; };
+		167EC32C24C8C6BE009C4647 /* TouchyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC32B24C8C6BE009C4647 /* TouchyTests.swift */; };
+		167EC33724C8C6BE009C4647 /* TouchyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC33624C8C6BE009C4647 /* TouchyUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		167EC32824C8C6BE009C4647 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 167EC30A24C8C6BB009C4647 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 167EC31124C8C6BB009C4647;
+			remoteInfo = Touchy;
+		};
+		167EC33324C8C6BE009C4647 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 167EC30A24C8C6BB009C4647 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 167EC31124C8C6BB009C4647;
+			remoteInfo = Touchy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		167EC31224C8C6BB009C4647 /* Touchy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Touchy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		167EC31524C8C6BB009C4647 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		167EC31724C8C6BB009C4647 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		167EC31924C8C6BE009C4647 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		167EC31C24C8C6BE009C4647 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		167EC31F24C8C6BE009C4647 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		167EC32124C8C6BE009C4647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		167EC32224C8C6BE009C4647 /* Touchy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Touchy.entitlements; sourceTree = "<group>"; };
+		167EC32724C8C6BE009C4647 /* TouchyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		167EC32B24C8C6BE009C4647 /* TouchyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchyTests.swift; sourceTree = "<group>"; };
+		167EC32D24C8C6BE009C4647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		167EC33224C8C6BE009C4647 /* TouchyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		167EC33624C8C6BE009C4647 /* TouchyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchyUITests.swift; sourceTree = "<group>"; };
+		167EC33824C8C6BE009C4647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		167EC30F24C8C6BB009C4647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167EC32424C8C6BE009C4647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167EC32F24C8C6BE009C4647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		167EC30924C8C6BB009C4647 = {
+			isa = PBXGroup;
+			children = (
+				167EC31424C8C6BB009C4647 /* Touchy */,
+				167EC32A24C8C6BE009C4647 /* TouchyTests */,
+				167EC33524C8C6BE009C4647 /* TouchyUITests */,
+				167EC31324C8C6BB009C4647 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		167EC31324C8C6BB009C4647 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				167EC31224C8C6BB009C4647 /* Touchy.app */,
+				167EC32724C8C6BE009C4647 /* TouchyTests.xctest */,
+				167EC33224C8C6BE009C4647 /* TouchyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		167EC31424C8C6BB009C4647 /* Touchy */ = {
+			isa = PBXGroup;
+			children = (
+				167EC31524C8C6BB009C4647 /* AppDelegate.swift */,
+				167EC31724C8C6BB009C4647 /* ContentView.swift */,
+				167EC31924C8C6BE009C4647 /* Assets.xcassets */,
+				167EC31E24C8C6BE009C4647 /* Main.storyboard */,
+				167EC32124C8C6BE009C4647 /* Info.plist */,
+				167EC32224C8C6BE009C4647 /* Touchy.entitlements */,
+				167EC31B24C8C6BE009C4647 /* Preview Content */,
+			);
+			path = Touchy;
+			sourceTree = "<group>";
+		};
+		167EC31B24C8C6BE009C4647 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				167EC31C24C8C6BE009C4647 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		167EC32A24C8C6BE009C4647 /* TouchyTests */ = {
+			isa = PBXGroup;
+			children = (
+				167EC32B24C8C6BE009C4647 /* TouchyTests.swift */,
+				167EC32D24C8C6BE009C4647 /* Info.plist */,
+			);
+			path = TouchyTests;
+			sourceTree = "<group>";
+		};
+		167EC33524C8C6BE009C4647 /* TouchyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				167EC33624C8C6BE009C4647 /* TouchyUITests.swift */,
+				167EC33824C8C6BE009C4647 /* Info.plist */,
+			);
+			path = TouchyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		167EC31124C8C6BB009C4647 /* Touchy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 167EC33B24C8C6BE009C4647 /* Build configuration list for PBXNativeTarget "Touchy" */;
+			buildPhases = (
+				167EC30E24C8C6BB009C4647 /* Sources */,
+				167EC30F24C8C6BB009C4647 /* Frameworks */,
+				167EC31024C8C6BB009C4647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Touchy;
+			productName = Touchy;
+			productReference = 167EC31224C8C6BB009C4647 /* Touchy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		167EC32624C8C6BE009C4647 /* TouchyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 167EC33E24C8C6BE009C4647 /* Build configuration list for PBXNativeTarget "TouchyTests" */;
+			buildPhases = (
+				167EC32324C8C6BE009C4647 /* Sources */,
+				167EC32424C8C6BE009C4647 /* Frameworks */,
+				167EC32524C8C6BE009C4647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				167EC32924C8C6BE009C4647 /* PBXTargetDependency */,
+			);
+			name = TouchyTests;
+			productName = TouchyTests;
+			productReference = 167EC32724C8C6BE009C4647 /* TouchyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		167EC33124C8C6BE009C4647 /* TouchyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 167EC34124C8C6BE009C4647 /* Build configuration list for PBXNativeTarget "TouchyUITests" */;
+			buildPhases = (
+				167EC32E24C8C6BE009C4647 /* Sources */,
+				167EC32F24C8C6BE009C4647 /* Frameworks */,
+				167EC33024C8C6BE009C4647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				167EC33424C8C6BE009C4647 /* PBXTargetDependency */,
+			);
+			name = TouchyUITests;
+			productName = TouchyUITests;
+			productReference = 167EC33224C8C6BE009C4647 /* TouchyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		167EC30A24C8C6BB009C4647 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Raphaël Vigée";
+				TargetAttributes = {
+					167EC31124C8C6BB009C4647 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					167EC32624C8C6BE009C4647 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = 167EC31124C8C6BB009C4647;
+					};
+					167EC33124C8C6BE009C4647 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = 167EC31124C8C6BB009C4647;
+					};
+				};
+			};
+			buildConfigurationList = 167EC30D24C8C6BB009C4647 /* Build configuration list for PBXProject "Touchy" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 167EC30924C8C6BB009C4647;
+			productRefGroup = 167EC31324C8C6BB009C4647 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				167EC31124C8C6BB009C4647 /* Touchy */,
+				167EC32624C8C6BE009C4647 /* TouchyTests */,
+				167EC33124C8C6BE009C4647 /* TouchyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		167EC31024C8C6BB009C4647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				167EC32024C8C6BE009C4647 /* Main.storyboard in Resources */,
+				167EC31D24C8C6BE009C4647 /* Preview Assets.xcassets in Resources */,
+				167EC31A24C8C6BE009C4647 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167EC32524C8C6BE009C4647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167EC33024C8C6BE009C4647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		167EC30E24C8C6BB009C4647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				167EC31824C8C6BB009C4647 /* ContentView.swift in Sources */,
+				167EC31624C8C6BB009C4647 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167EC32324C8C6BE009C4647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				167EC32C24C8C6BE009C4647 /* TouchyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167EC32E24C8C6BE009C4647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				167EC33724C8C6BE009C4647 /* TouchyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		167EC32924C8C6BE009C4647 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 167EC31124C8C6BB009C4647 /* Touchy */;
+			targetProxy = 167EC32824C8C6BE009C4647 /* PBXContainerItemProxy */;
+		};
+		167EC33424C8C6BE009C4647 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 167EC31124C8C6BB009C4647 /* Touchy */;
+			targetProxy = 167EC33324C8C6BE009C4647 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		167EC31E24C8C6BE009C4647 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				167EC31F24C8C6BE009C4647 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		167EC33924C8C6BE009C4647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		167EC33A24C8C6BE009C4647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		167EC33C24C8C6BE009C4647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Touchy/Touchy.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Touchy/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Touchy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raphaelvigee.Touchy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		167EC33D24C8C6BE009C4647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Touchy/Touchy.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Touchy/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Touchy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raphaelvigee.Touchy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		167EC33F24C8C6BE009C4647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TouchyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raphaelvigee.TouchyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Touchy.app/Contents/MacOS/Touchy";
+			};
+			name = Debug;
+		};
+		167EC34024C8C6BE009C4647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TouchyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raphaelvigee.TouchyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Touchy.app/Contents/MacOS/Touchy";
+			};
+			name = Release;
+		};
+		167EC34224C8C6BE009C4647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TouchyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.raphaelvigee.TouchyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Touchy;
+			};
+			name = Debug;
+		};
+		167EC34324C8C6BE009C4647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TouchyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.raphaelvigee.TouchyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Touchy;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		167EC30D24C8C6BB009C4647 /* Build configuration list for PBXProject "Touchy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				167EC33924C8C6BE009C4647 /* Debug */,
+				167EC33A24C8C6BE009C4647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		167EC33B24C8C6BE009C4647 /* Build configuration list for PBXNativeTarget "Touchy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				167EC33C24C8C6BE009C4647 /* Debug */,
+				167EC33D24C8C6BE009C4647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		167EC33E24C8C6BE009C4647 /* Build configuration list for PBXNativeTarget "TouchyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				167EC33F24C8C6BE009C4647 /* Debug */,
+				167EC34024C8C6BE009C4647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		167EC34124C8C6BE009C4647 /* Build configuration list for PBXNativeTarget "TouchyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				167EC34224C8C6BE009C4647 /* Debug */,
+				167EC34324C8C6BE009C4647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 167EC30A24C8C6BB009C4647 /* Project object */;
+}
