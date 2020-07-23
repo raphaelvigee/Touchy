@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		167EC31624C8C6BB009C4647 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC31524C8C6BB009C4647 /* AppDelegate.swift */; };
-		167EC31824C8C6BB009C4647 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC31724C8C6BB009C4647 /* ContentView.swift */; };
 		167EC31A24C8C6BE009C4647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167EC31924C8C6BE009C4647 /* Assets.xcassets */; };
 		167EC31D24C8C6BE009C4647 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167EC31C24C8C6BE009C4647 /* Preview Assets.xcassets */; };
 		167EC32024C8C6BE009C4647 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167EC31E24C8C6BE009C4647 /* Main.storyboard */; };
 		167EC32C24C8C6BE009C4647 /* TouchyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC32B24C8C6BE009C4647 /* TouchyTests.swift */; };
 		167EC33724C8C6BE009C4647 /* TouchyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC33624C8C6BE009C4647 /* TouchyUITests.swift */; };
 		167EC34824C9905E009C4647 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167EC34724C9905E009C4647 /* DFRFoundation.framework */; };
+		167EC34A24C9B068009C4647 /* TouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC34924C9B068009C4647 /* TouchBarController.swift */; };
+		EDD4D259DBB7D89134A7EEF1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EDD4D0737DCBE7FAA1276B9D /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,6 @@
 /* Begin PBXFileReference section */
 		167EC31224C8C6BB009C4647 /* Touchy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Touchy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		167EC31524C8C6BB009C4647 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		167EC31724C8C6BB009C4647 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		167EC31924C8C6BE009C4647 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		167EC31C24C8C6BE009C4647 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		167EC31F24C8C6BE009C4647 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +51,8 @@
 		167EC33824C8C6BE009C4647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		167EC34524C8C9D9009C4647 /* Touchy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Touchy-Bridging-Header.h"; sourceTree = "<group>"; };
 		167EC34724C9905E009C4647 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = /System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
+		167EC34924C9B068009C4647 /* TouchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarController.swift; sourceTree = "<group>"; };
+		EDD4D0737DCBE7FAA1276B9D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				167EC33524C8C6BE009C4647 /* TouchyUITests */,
 				167EC31324C8C6BB009C4647 /* Products */,
 				167EC34624C9905E009C4647 /* Frameworks */,
+				EDD4D0737DCBE7FAA1276B9D /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,13 +107,13 @@
 			isa = PBXGroup;
 			children = (
 				167EC31524C8C6BB009C4647 /* AppDelegate.swift */,
-				167EC31724C8C6BB009C4647 /* ContentView.swift */,
 				167EC34524C8C9D9009C4647 /* Touchy-Bridging-Header.h */,
 				167EC31924C8C6BE009C4647 /* Assets.xcassets */,
 				167EC31E24C8C6BE009C4647 /* Main.storyboard */,
 				167EC32124C8C6BE009C4647 /* Info.plist */,
 				167EC32224C8C6BE009C4647 /* Touchy.entitlements */,
 				167EC31B24C8C6BE009C4647 /* Preview Content */,
+				167EC34924C9B068009C4647 /* TouchBarController.swift */,
 			);
 			path = Touchy;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				167EC32024C8C6BE009C4647 /* Main.storyboard in Resources */,
 				167EC31D24C8C6BE009C4647 /* Preview Assets.xcassets in Resources */,
 				167EC31A24C8C6BE009C4647 /* Assets.xcassets in Resources */,
+				EDD4D259DBB7D89134A7EEF1 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				167EC31824C8C6BB009C4647 /* ContentView.swift in Sources */,
+				167EC34A24C9B068009C4647 /* TouchBarController.swift in Sources */,
 				167EC31624C8C6BB009C4647 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

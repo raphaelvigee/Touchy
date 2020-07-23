@@ -31,7 +31,7 @@ extern void DFRSystemModalShowsCloseBoxWhenFrontMost(BOOL);
 + (void)removeSystemTrayItem:(nullable NSTouchBarItem *)item;
 @end
 
-@interface NSCustomTouchBarItem (Pock)
+@interface NSCustomTouchBarItem (Touchy)
 @property (readwrite, strong, nullable) __kindof NSView *view;
 @property (readwrite, strong, nullable) __kindof NSViewController *viewController;
 @property (readwrite, copy, null_resettable) NSString *customizationLabel;
