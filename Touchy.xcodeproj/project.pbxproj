@@ -14,6 +14,7 @@
 		167EC32024C8C6BE009C4647 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167EC31E24C8C6BE009C4647 /* Main.storyboard */; };
 		167EC32C24C8C6BE009C4647 /* TouchyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC32B24C8C6BE009C4647 /* TouchyTests.swift */; };
 		167EC33724C8C6BE009C4647 /* TouchyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC33624C8C6BE009C4647 /* TouchyUITests.swift */; };
+		167EC34824C9905E009C4647 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167EC34724C9905E009C4647 /* DFRFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		167EC33224C8C6BE009C4647 /* TouchyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		167EC33624C8C6BE009C4647 /* TouchyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchyUITests.swift; sourceTree = "<group>"; };
 		167EC33824C8C6BE009C4647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		167EC34524C8C9D9009C4647 /* Touchy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Touchy-Bridging-Header.h"; sourceTree = "<group>"; };
+		167EC34724C9905E009C4647 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = /System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				167EC34824C9905E009C4647 /* DFRFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +86,7 @@
 				167EC32A24C8C6BE009C4647 /* TouchyTests */,
 				167EC33524C8C6BE009C4647 /* TouchyUITests */,
 				167EC31324C8C6BB009C4647 /* Products */,
+				167EC34624C9905E009C4647 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +105,7 @@
 			children = (
 				167EC31524C8C6BB009C4647 /* AppDelegate.swift */,
 				167EC31724C8C6BB009C4647 /* ContentView.swift */,
+				167EC34524C8C9D9009C4647 /* Touchy-Bridging-Header.h */,
 				167EC31924C8C6BE009C4647 /* Assets.xcassets */,
 				167EC31E24C8C6BE009C4647 /* Main.storyboard */,
 				167EC32124C8C6BE009C4647 /* Info.plist */,
@@ -133,6 +139,14 @@
 				167EC33824C8C6BE009C4647 /* Info.plist */,
 			);
 			path = TouchyUITests;
+			sourceTree = "<group>";
+		};
+		167EC34624C9905E009C4647 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				167EC34724C9905E009C4647 /* DFRFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +450,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Touchy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Touchy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,7 +459,9 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.raphaelvigee.Touchy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Touchy/Touchy-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = /System/Library/PrivateFrameworks;
 			};
 			name = Debug;
 		};
@@ -457,6 +474,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Touchy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Touchy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -465,7 +483,9 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.raphaelvigee.Touchy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Touchy/Touchy-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = /System/Library/PrivateFrameworks;
 			};
 			name = Release;
 		};
