@@ -7,24 +7,27 @@
 //
 
 import Foundation
+import AudioToolbox
 
-private let kBearIdentifier = NSTouchBarItem.Identifier("io.a2.Bear")
-private let ktoggleCSIdentifier = NSTouchBarItem.Identifier("io.a2.ToggleCS")
-private let kPandaIdentifier = NSTouchBarItem.Identifier("io.a2.Panda")
-private let kGroupIdentifier = NSTouchBarItem.Identifier("io.a2.Group")
+@available(OSX 10.12.2, *)
+extension NSTouchBar.CustomizationIdentifier {
+    static let mainTouchBar = NSTouchBar.CustomizationIdentifier("com.touchy")
+}
 
-class TouchBarController: NSController, NSTouchBarDelegate {
-    private var _groupTouchBar: NSTouchBar?
-    private var groupTouchBar: NSTouchBar? {
-        if _groupTouchBar == nil {
-            let groupTouchBar = NSTouchBar()
-            groupTouchBar.defaultItemIdentifiers = [ktoggleCSIdentifier, kBearIdentifier, kPandaIdentifier]
-            groupTouchBar.delegate = self
-            _groupTouchBar = groupTouchBar
-        }
+@available(OSX 10.12.2, *)
+extension NSTouchBarItem.Identifier {
+    static let CS = NSTouchBarItem.Identifier("com.touchy.CS")
+    static let Anchor = NSTouchBarItem.Identifier("com.touchy.Anchor")
+    static let Previous = NSTouchBarItem.Identifier("com.touchy.Previous")
+    static let Play = NSTouchBarItem.Identifier("com.touchy.Play")
+    static let Next = NSTouchBarItem.Identifier("com.touchy.Next")
+    static let VolumeSlider = NSTouchBarItem.Identifier("com.touchy.VolumeSlider")
+    static let VolumeUp = NSTouchBarItem.Identifier("com.touchy.VolumeUp")
+    static let VolumeDown = NSTouchBarItem.Identifier("com.touchy.VolumeDown")
+}
 
-        return _groupTouchBar
-    }
+class TouchBarController: NSObject, NSTouchBarDelegate {
+    private var groupTouchBar: NSTouchBar?
     private var isVisible: Bool {
         if groupTouchBar == nil {
             return false
@@ -43,25 +46,78 @@ class TouchBarController: NSController, NSTouchBarDelegate {
         print("Panda")
     }
 
+    func makeTouchBar(ids: [NSTouchBarItem.Identifier]) {
+        groupTouchBar = NSTouchBar()
+        groupTouchBar?.delegate = self
+        groupTouchBar?.customizationIdentifier = .mainTouchBar
+        groupTouchBar?.defaultItemIdentifiers = ids
+    }
+
     func touchBar(
             _ touchBar: NSTouchBar,
             makeItemForIdentifier identifier: NSTouchBarItem.Identifier
     ) -> NSTouchBarItem? {
-        if identifier.rawValue == kBearIdentifier.rawValue {
-            let item = NSCustomTouchBarItem(identifier: kBearIdentifier)
-            item.view = NSButton(title: "BEAR", target: self, action: #selector(bear))
+        switch identifier {
+        case .Anchor:
+            let item = NSCustomTouchBarItem(identifier: identifier)
+            item.view = NSButton(title: "⚓️", target: self, action: #selector(toggleCS))
             return item
-        } else if identifier.rawValue == kPandaIdentifier.rawValue {
-            let item = NSCustomTouchBarItem(identifier: kPandaIdentifier)
-            item.view = NSButton(title: "PANDA", target: self, action: #selector(panda))
+        case .Previous:
+            let item = NSCustomTouchBarItem(identifier: identifier)
+            item.view = NSButton(title: "<️", target: self, action: #selector(previous))
             return item
-        } else if identifier.rawValue == ktoggleCSIdentifier.rawValue {
-            let item = NSCustomTouchBarItem(identifier: ktoggleCSIdentifier)
-            item.view = NSButton(title: "CS", target: self, action: #selector(toggleCS))
+        case .Play:
+            let item = NSCustomTouchBarItem(identifier: identifier)
+            item.view = NSButton(title: "||", target: self, action: #selector(togglePlayPause))
             return item
-        } else {
-            return nil
+        case .Next:
+            let item = NSCustomTouchBarItem(identifier: identifier)
+            item.view = NSButton(title: ">", target: self, action: #selector(next))
+            return item
+        case .VolumeUp:
+            let item = NSCustomTouchBarItem(identifier: identifier)
+            item.view = NSButton(title: "/\\", target: self, action: #selector(volumeUp))
+            return item
+        case .VolumeDown:
+            let item = NSCustomTouchBarItem(identifier: identifier)
+            item.view = NSButton(title: "\\/", target: self, action: #selector(volumeDown))
+            return item
+        case .VolumeSlider:
+            let item = NSSliderTouchBarItem(identifier: identifier)
+            item.doubleValue = Double(NSSound.systemVolume())
+            item.slider.target = self
+            item.slider.action = #selector(volumeSlider)
+
+            return item
+        default:
+            return touchBar.item(forIdentifier: identifier)
         }
+    }
+
+    @IBAction func volumeSlider(_ sender: NSSlider) {
+        let volume = sender.floatValue
+
+        NSSound.setSystemVolume(volume)
+    }
+
+    @objc func volumeUp() {
+        NSSound.increaseSystemVolume(by: 0.1)
+    }
+
+    @objc func volumeDown() {
+        NSSound.decreaseSystemVolume(by: 0.1)
+    }
+
+    @objc func togglePlayPause() {
+        MRMediaRemoteSendCommand(kMRTogglePlayPause, nil)
+    }
+
+    @objc func previous() {
+        MRMediaRemoteSendCommand(kMRPreviousTrack, nil)
+    }
+
+    @objc func next() {
+        MRMediaRemoteSendCommand(kMRNextTrack, nil)
     }
 
     @objc func toggleCS() {
@@ -74,7 +130,7 @@ class TouchBarController: NSController, NSTouchBarDelegate {
     func showControlStripIcon() {
         DFRSystemModalShowsCloseBoxWhenFrontMost(false)
 
-        let touchy = NSCustomTouchBarItem(identifier: kGroupIdentifier)
+        let touchy = NSCustomTouchBarItem(identifier: .CS)
         touchy.view = NSButton(title: "🦄", target: self, action: #selector(toggle))
 
         NSTouchBarItem.removeSystemTrayItem(touchy)
@@ -116,9 +172,9 @@ class TouchBarController: NSController, NSTouchBarDelegate {
 
     private func presentWithPlacement(placement: Int64) {
         if #available(macOS 10.14, *) {
-            NSTouchBar.presentSystemModalTouchBar(groupTouchBar, placement: placement, systemTrayItemIdentifier: kGroupIdentifier)
+            NSTouchBar.presentSystemModalTouchBar(groupTouchBar, placement: placement, systemTrayItemIdentifier: .CS)
         } else {
-            NSTouchBar.presentSystemModalFunctionBar(groupTouchBar, placement: placement, systemTrayItemIdentifier: kGroupIdentifier)
+            NSTouchBar.presentSystemModalFunctionBar(groupTouchBar, placement: placement, systemTrayItemIdentifier: .CS)
         }
     }
 }

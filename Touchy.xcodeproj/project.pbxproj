@@ -3,19 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16777FF724C9D78000B04940 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16777FF624C9D78000B04940 /* DFRFoundation.framework */; };
+		16777FFA24C9D78600B04940 /* MediaRemote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16777FF224C9D75900B04940 /* MediaRemote.framework */; };
+		16777FFF24C9DF2900B04940 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 16777FE524C9C0CC00B04940 /* Yams */; };
+		1677800124C9DF3F00B04940 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1677800024C9DF3F00B04940 /* CoreAudio.framework */; };
 		167EC31624C8C6BB009C4647 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC31524C8C6BB009C4647 /* AppDelegate.swift */; };
 		167EC31A24C8C6BE009C4647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167EC31924C8C6BE009C4647 /* Assets.xcassets */; };
 		167EC31D24C8C6BE009C4647 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167EC31C24C8C6BE009C4647 /* Preview Assets.xcassets */; };
 		167EC32024C8C6BE009C4647 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167EC31E24C8C6BE009C4647 /* Main.storyboard */; };
 		167EC32C24C8C6BE009C4647 /* TouchyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC32B24C8C6BE009C4647 /* TouchyTests.swift */; };
 		167EC33724C8C6BE009C4647 /* TouchyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC33624C8C6BE009C4647 /* TouchyUITests.swift */; };
-		167EC34824C9905E009C4647 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167EC34724C9905E009C4647 /* DFRFoundation.framework */; };
 		167EC34A24C9B068009C4647 /* TouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC34924C9B068009C4647 /* TouchBarController.swift */; };
 		EDD4D259DBB7D89134A7EEF1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EDD4D0737DCBE7FAA1276B9D /* .gitignore */; };
+		EDD4D30161EF6692EAEFF544 /* ISSoundAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD4DC857B29C995DC0F925A /* ISSoundAdditions.m */; };
+		EDD4DFE1F59D067E1C25C347 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4DFE1C9674F537CD7888D /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16777FEB24C9D1B000B04940 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		16777FF224C9D75900B04940 /* MediaRemote.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaRemote.framework; path = ../../../../../Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/PrivateFrameworks/MediaRemote.framework; sourceTree = "<group>"; };
+		16777FF624C9D78000B04940 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../../Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
+		1677800024C9DF3F00B04940 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		167EC31224C8C6BB009C4647 /* Touchy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Touchy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		167EC31524C8C6BB009C4647 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		167EC31924C8C6BE009C4647 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,10 +58,15 @@
 		167EC33224C8C6BE009C4647 /* TouchyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		167EC33624C8C6BE009C4647 /* TouchyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchyUITests.swift; sourceTree = "<group>"; };
 		167EC33824C8C6BE009C4647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		167EC34524C8C9D9009C4647 /* Touchy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Touchy-Bridging-Header.h"; sourceTree = "<group>"; };
+		167EC34524C8C9D9009C4647 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		167EC34724C9905E009C4647 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = /System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
 		167EC34924C9B068009C4647 /* TouchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarController.swift; sourceTree = "<group>"; };
 		EDD4D0737DCBE7FAA1276B9D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		EDD4D08ADFB7B798B8C2CDC6 /* ISSoundAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSoundAdditions.h; sourceTree = "<group>"; };
+		EDD4D4FC3DC1CA6D5E7538D5 /* TouchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchBar.h; sourceTree = "<group>"; };
+		EDD4DC857B29C995DC0F925A /* ISSoundAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSoundAdditions.m; sourceTree = "<group>"; };
+		EDD4DDB56B1B27DFE4A303E1 /* MRMediaRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRMediaRemote.h; sourceTree = "<group>"; };
+		EDD4DFE1C9674F537CD7888D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				167EC34824C9905E009C4647 /* DFRFoundation.framework in Frameworks */,
+				16777FF724C9D78000B04940 /* DFRFoundation.framework in Frameworks */,
+				16777FFF24C9DF2900B04940 /* Yams in Frameworks */,
+				1677800124C9DF3F00B04940 /* CoreAudio.framework in Frameworks */,
+				16777FFA24C9D78600B04940 /* MediaRemote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,13 +124,14 @@
 			isa = PBXGroup;
 			children = (
 				167EC31524C8C6BB009C4647 /* AppDelegate.swift */,
-				167EC34524C8C9D9009C4647 /* Touchy-Bridging-Header.h */,
 				167EC31924C8C6BE009C4647 /* Assets.xcassets */,
 				167EC31E24C8C6BE009C4647 /* Main.storyboard */,
 				167EC32124C8C6BE009C4647 /* Info.plist */,
 				167EC32224C8C6BE009C4647 /* Touchy.entitlements */,
 				167EC31B24C8C6BE009C4647 /* Preview Content */,
 				167EC34924C9B068009C4647 /* TouchBarController.swift */,
+				EDD4DFE1C9674F537CD7888D /* Config.swift */,
+				EDD4DFACBA9F63C7FAA64518 /* Private */,
 			);
 			path = Touchy;
 			sourceTree = "<group>";
@@ -147,9 +165,25 @@
 		167EC34624C9905E009C4647 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1677800024C9DF3F00B04940 /* CoreAudio.framework */,
+				16777FF624C9D78000B04940 /* DFRFoundation.framework */,
+				16777FF224C9D75900B04940 /* MediaRemote.framework */,
+				16777FEB24C9D1B000B04940 /* MediaPlayer.framework */,
 				167EC34724C9905E009C4647 /* DFRFoundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDD4DFACBA9F63C7FAA64518 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				167EC34524C8C9D9009C4647 /* Bridging-Header.h */,
+				EDD4D4FC3DC1CA6D5E7538D5 /* TouchBar.h */,
+				EDD4DDB56B1B27DFE4A303E1 /* MRMediaRemote.h */,
+				EDD4D08ADFB7B798B8C2CDC6 /* ISSoundAdditions.h */,
+				EDD4DC857B29C995DC0F925A /* ISSoundAdditions.m */,
+			);
+			path = Private;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +202,9 @@
 			dependencies = (
 			);
 			name = Touchy;
+			packageProductDependencies = (
+				16777FE524C9C0CC00B04940 /* Yams */,
+			);
 			productName = Touchy;
 			productReference = 167EC31224C8C6BB009C4647 /* Touchy.app */;
 			productType = "com.apple.product-type.application";
@@ -240,6 +277,9 @@
 				Base,
 			);
 			mainGroup = 167EC30924C8C6BB009C4647;
+			packageReferences = (
+				16777FE424C9C0CC00B04940 /* XCRemoteSwiftPackageReference "Yams" */,
+			);
 			productRefGroup = 167EC31324C8C6BB009C4647 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -286,6 +326,8 @@
 			files = (
 				167EC34A24C9B068009C4647 /* TouchBarController.swift in Sources */,
 				167EC31624C8C6BB009C4647 /* AppDelegate.swift in Sources */,
+				EDD4DFE1F59D067E1C25C347 /* Config.swift in Sources */,
+				EDD4D30161EF6692EAEFF544 /* ISSoundAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +430,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -441,6 +484,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
@@ -463,7 +507,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.raphaelvigee.Touchy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Touchy/Touchy-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Touchy/Private/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /System/Library/PrivateFrameworks;
 			};
@@ -487,7 +531,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.raphaelvigee.Touchy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Touchy/Touchy-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Touchy/Private/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /System/Library/PrivateFrameworks;
 			};
@@ -613,6 +657,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		16777FE424C9C0CC00B04940 /* XCRemoteSwiftPackageReference "Yams" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jpsim/Yams.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		16777FE524C9C0CC00B04940 /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16777FE424C9C0CC00B04940 /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 167EC30A24C8C6BB009C4647 /* Project object */;
 }

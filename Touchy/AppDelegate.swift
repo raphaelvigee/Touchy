@@ -19,6 +19,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem?.button?.title = "🚀"
         statusItem?.button?.action = #selector(menuAction)
 
+        let config = decode()
+
+        TBController.makeTouchBar(ids: config.items.map { typeToIdentifier(id: $0.type) })
+
         TBController.showControlStripIcon()
         TBController.present()
         TBController.minimize()
@@ -33,3 +37,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
+func typeToIdentifier(id: String) -> NSTouchBarItem.Identifier {
+    switch id {
+    case "anchor":
+        return .Anchor
+    case "previous":
+        return .Previous
+    case "play":
+        return .Play
+    case "next":
+        return .Next
+    case "volume_slider":
+        return .VolumeSlider
+    case "volume_up":
+        return .VolumeUp
+    case "volume_down":
+        return .VolumeDown
+    case "flex":
+        return .flexibleSpace
+    default:
+        return NSTouchBarItem.Identifier("__invalid__")
+    }
+}
