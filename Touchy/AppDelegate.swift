@@ -9,9 +9,21 @@
 import Cocoa
 import SwiftUI
 
+let widgets: [Widget.Type] = [
+    AnchorWidget.self,
+    PreviousWidget.self,
+    PlayPauseWidget.self,
+    NextWidget.self,
+    VolumeSliderWidget.self,
+    VolumeUpWidget.self,
+    VolumeDownWidget.self,
+    FlexWidget.self,
+]
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem?
+
     private var TBController = TouchBarController()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -21,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         let config = decode()
 
-        TBController.makeTouchBar(ids: config.items.map { typeToIdentifier(id: $0.type) })
+        TBController.makeTouchBar(widgets: config.items.map { typeToWidget(id: $0.type) })
 
         TBController.showControlStripIcon()
         TBController.present()
@@ -37,25 +49,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
-func typeToIdentifier(id: String) -> NSTouchBarItem.Identifier {
+func typeToWidget(id: String) -> Widget.Type {
     switch id {
     case "anchor":
-        return .Anchor
+        return AnchorWidget.self
     case "previous":
-        return .Previous
+        return PreviousWidget.self
     case "play":
-        return .Play
+        return PlayPauseWidget.self
     case "next":
-        return .Next
+        return NextWidget.self
     case "volume_slider":
-        return .VolumeSlider
+        return VolumeSliderWidget.self
     case "volume_up":
-        return .VolumeUp
+        return VolumeUpWidget.self
     case "volume_down":
-        return .VolumeDown
+        return VolumeDownWidget.self
     case "flex":
-        return .flexibleSpace
+        return FlexWidget.self
     default:
-        return NSTouchBarItem.Identifier("__invalid__")
+        fatalError("invalid type \(id)")
     }
 }
