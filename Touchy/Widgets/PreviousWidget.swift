@@ -15,6 +15,6 @@ class PreviousWidget: BaseWidget, Widget {
     }
 
     @objc func action() {
-        MRMediaRemoteSendCommand(kMRPreviousTrack, nil)
+        NowPlayingHelper.shared.skipToPreviousTrack()
     }
 }

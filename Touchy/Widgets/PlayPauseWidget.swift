@@ -8,13 +8,45 @@ import Foundation
 class PlayPauseWidget: BaseWidget, Widget {
     static var identifier: NSTouchBarItem.Identifier = NSTouchBarItem.Identifier("com.touchy.playpause")
 
+    private var item: NSCustomTouchBarItem?
+
+    required init(tbc: TouchBarController) {
+        super.init(tbc: tbc)
+
+        self.registerForNotifications()
+
+        item = NSCustomTouchBarItem(identifier: type(of: self).identifier)
+
+        self.updateUI()
+    }
+
+    private func registerForNotifications() {
+        NotificationCenter.default.addObserver(self,
+                selector: #selector(updateNowPLayingItemView),
+                name: NowPlayingHelper.kNowPlayingItemDidChange,
+                object: nil
+        )
+    }
+
     func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
-        let item = NSCustomTouchBarItem(identifier: type(of: self).identifier)
-        item.view = NSButton(title: "||", target: self, action: #selector(action))
-        return item
+        item
     }
 
     @objc func action() {
-        MRMediaRemoteSendCommand(kMRTogglePlayPause, nil)
+        NowPlayingHelper.shared.togglePlayingState()
+    }
+
+    func updateUI() {
+        if !NowPlayingHelper.shared.isPlaying {
+            self.item?.view = NSButton(title: "|>", target: self, action: #selector(action))
+        } else {
+            self.item?.view = NSButton(title: "||", target: self, action: #selector(action))
+        }
+    }
+
+    @objc private func updateNowPLayingItemView() {
+        DispatchQueue.main.async { [weak self] in
+            self?.updateUI()
+        }
     }
 }
