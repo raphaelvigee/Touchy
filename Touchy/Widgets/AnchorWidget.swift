@@ -10,7 +10,10 @@ class AnchorWidget: BaseWidget, Widget {
 
     func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
         let item = NSCustomTouchBarItem(identifier: type(of: self).identifier)
-        item.view = NSButton(title: "⚓️", target: self, action: #selector(action))
+        let view = NSButton(title: "⚓️", target: self, action: #selector(action))
+        view.isBordered = false
+
+        item.view = view
         return item
     }
 
