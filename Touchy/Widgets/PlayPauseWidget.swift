@@ -37,11 +37,14 @@ class PlayPauseWidget: BaseWidget, Widget {
     }
 
     func updateUI() {
+        var view: NSButton
         if !NowPlayingHelper.shared.isPlaying {
-            self.item?.view = NSButton(title: "|>", target: self, action: #selector(action))
+            view = NSButton(title: "|>", target: self, action: #selector(action))
         } else {
-            self.item?.view = NSButton(title: "||", target: self, action: #selector(action))
+            view = NSButton(title: "||", target: self, action: #selector(action))
         }
+
+        self.item?.view = view
     }
 
     @objc private func updateNowPLayingItemView() {
