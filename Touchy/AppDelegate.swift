@@ -33,11 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         let config = decode()
 
-        TBController.makeTouchBar(widgets: config.items.map { typeToWidget(id: $0.type) })
-
-        TBController.showControlStripIcon()
-        TBController.present()
-        TBController.minimize()
+        TBController.makeTouchBar(widgets: config.items.map { typeToWidget(id: $0.type) }, hideControlStrip: config.defaultHideControlStrip)
     }
 
     @objc func menuAction() {

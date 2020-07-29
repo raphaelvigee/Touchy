@@ -48,7 +48,9 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
 
     private var hideControlStrip = false
 
-    func makeTouchBar(widgets: [Widget.Type]) {
+    func makeTouchBar(widgets: [Widget.Type], hideControlStrip: Bool) {
+        self.hideControlStrip = hideControlStrip
+
         self.widgets = [NSTouchBarItem.Identifier: Widget]()
         var ids = [NSTouchBarItem.Identifier]()
 
@@ -66,6 +68,9 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
         groupTouchBar?.delegate = self
         groupTouchBar?.customizationIdentifier = .mainTouchBar
         groupTouchBar?.defaultItemIdentifiers = ids
+
+        showControlStripIcon()
+        present()
     }
 
     func touchBar(
