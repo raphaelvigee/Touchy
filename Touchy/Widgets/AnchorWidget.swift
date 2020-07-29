@@ -5,19 +5,56 @@
 
 import Foundation
 
-class AnchorWidget: BaseWidget, Widget {
+class AnchorWidget: BaseWidget, Widget, NSGestureRecognizerDelegate {
     static var identifier: NSTouchBarItem.Identifier = NSTouchBarItem.Identifier("com.touchy.anchor")
+
+    private var buttonView: NSButton!
+
+    private var start: CGFloat = -1
+    private var swipeThreshold: CGFloat = 30
 
     func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
         let item = NSCustomTouchBarItem(identifier: type(of: self).identifier)
-        let view = NSButton(title: "⚓️", target: self, action: #selector(action))
-        view.isBordered = false
+        buttonView = NSButton(title: "⚓", target: self, action: #selector(onClick))
+        styleButton()
 
-        item.view = view
+        let oneFinger = NSPanGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
+        oneFinger.numberOfTouchesRequired = 1
+        oneFinger.allowedTouchTypes = .direct
+        buttonView.addGestureRecognizer(oneFinger)
+
+        item.view = buttonView
         return item
     }
 
-    @objc func action() {
+    func styleButton() {
+        buttonView.isBordered = false
+    }
+
+    @objc func onClick() {
+        if tbc.alwaysHideControlStrip {
+            return
+        }
+
         tbc.toggleCS()
+    }
+
+    @objc func onSwipe(_ sender: NSGestureRecognizer?) {
+        let position = (sender?.location(in: sender?.view).x)!
+
+        switch sender?.state {
+        case .began:
+            start = position
+        case .changed:
+            if tbc.hideControlStrip && (position - start) > swipeThreshold {
+                tbc.setCS(hide: false)
+                tbc.minimize()
+                styleButton()
+            }
+        case .ended:
+            styleButton()
+        default:
+            break
+        }
     }
 }

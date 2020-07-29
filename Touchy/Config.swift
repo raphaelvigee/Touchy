@@ -12,31 +12,23 @@ struct Item: Codable {
 }
 
 struct Config: Codable {
-    var defaultHideControlStrip: Bool
+    var alwaysHideControlStrip: Bool
     var items: [Item]
 }
 
-func decode() -> Config {
+func decode() throws -> Config {
     let encodedYAML = """
-                      defaultHideControlStrip: true
+                      alwaysHideControlStrip: true
                       items:
                       - type: "anchor"
                       - type: "previous"
                       - type: "play"
                       - type: "next"
                       - type: "flex"
-                      - type: "volume_down"
-                      - type: "volume_up"
+                      - type: "volume_buttons"
                       """
 
     let decoder = YAMLDecoder()
-    var config: Config
-    do {
-        config = try decoder.decode(Config.self, from: encodedYAML)
-    } catch {
-        print(error)
-        return Config(defaultHideControlStrip: false, items: [])
-    }
 
-    return config
+    return try decoder.decode(Config.self, from: encodedYAML)
 }

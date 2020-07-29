@@ -27,10 +27,59 @@ protocol Widget {
     func item(touchBar: NSTouchBar) -> NSTouchBarItem?
 }
 
-class BaseWidget {
+class BaseWidget: NSObject {
     var tbc: TouchBarController
+
     required init(tbc: TouchBarController) {
         self.tbc = tbc
+    }
+}
+
+class ControlStripButton: NSCustomTouchBarItem, NSGestureRecognizerDelegate {
+    private var tbc: TouchBarController!
+
+    init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController) {
+        self.tbc = tbc
+        super.init(identifier: identifier)
+
+        let view = NSButton(title: "🦄", target: self, action: #selector(controlStripIconClick))
+
+        let oneFinger = NSPanGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
+        oneFinger.numberOfTouchesRequired = 1
+        oneFinger.allowedTouchTypes = .direct
+        view.addGestureRecognizer(oneFinger)
+
+        self.view = view
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
+    private var start: CGFloat = -1
+    private var swipeThreshold: CGFloat = 30
+
+    @objc func onSwipe(_ sender: NSGestureRecognizer?) {
+        let position = (sender?.location(in: sender?.view).x)!
+
+        switch sender?.state {
+        case .began:
+            start = position
+        case .changed:
+            if (start - position) > swipeThreshold {
+                controlStripIconClick()
+            }
+        default:
+            break
+        }
+    }
+
+    @objc func controlStripIconClick() {
+        if tbc.alwaysHideControlStrip {
+            tbc.setCS(hide: true)
+        }
+
+        tbc.present()
     }
 }
 
@@ -46,7 +95,8 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
         return groupTouchBar?.isVisible ?? false
     }
 
-    private var hideControlStrip = false
+    public var alwaysHideControlStrip = false
+    public var hideControlStrip = false
 
     func makeTouchBar(widgets: [Widget.Type], hideControlStrip: Bool) {
         self.hideControlStrip = hideControlStrip
@@ -56,9 +106,7 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
 
         widgets.forEach { wt in
             let i = wt.init(tbc: self)
-
             let id = type(of: i).identifier
-
             self.widgets?[id] = i
 
             ids.append(id)
@@ -85,17 +133,22 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
     }
 
     func toggleCS() {
-        hideControlStrip = !hideControlStrip
+        setCS(hide: !hideControlStrip)
+    }
+
+    func setCS(hide: Bool) {
+        hideControlStrip = hide
         dismiss()
         present()
-        showControlStripIcon()
+        if !hideControlStrip {
+            showControlStripIcon()
+        }
     }
 
     func showControlStripIcon() {
         DFRSystemModalShowsCloseBoxWhenFrontMost(false)
 
-        let touchy = NSCustomTouchBarItem(identifier: .Touchy)
-        touchy.view = NSButton(title: "🦄", target: self, action: #selector(toggle))
+        let touchy = ControlStripButton(identifier: .Touchy, tbc: self)
 
         NSTouchBarItem.removeSystemTrayItem(touchy)
         NSTouchBarItem.addSystemTrayItem(touchy)

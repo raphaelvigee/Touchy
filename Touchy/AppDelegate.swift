@@ -15,28 +15,39 @@ let widgets: [Widget.Type] = [
     PlayPauseWidget.self,
     NextWidget.self,
     VolumeSliderWidget.self,
-    VolumeUpWidget.self,
-    VolumeDownWidget.self,
+    VolumeButtonsWidget.self,
     FlexWidget.self,
 ]
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    private var statusItem: NSStatusItem?
+    private var statusItem: NSStatusItem!
 
     private var TBController = TouchBarController()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        statusItem?.button?.title = "🚀"
-        statusItem?.button?.action = #selector(menuAction)
+        statusItem!.button?.title = "🚀"
 
-        let config = decode()
+        let menu = NSMenu()
 
-        TBController.makeTouchBar(widgets: config.items.map { typeToWidget(id: $0.type) }, hideControlStrip: config.defaultHideControlStrip)
+        menu.addItem(NSMenuItem(title: "Toggle Control Strip", action: #selector(toggleCS), keyEquivalent: ""))
+        menu.addItem(NSMenuItem.separator())
+        menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: ""))
+
+        statusItem.menu = menu
+
+        do {
+            let config = try decode()
+
+            TBController.makeTouchBar(widgets: config.items.map { typeToWidget(id: $0.type) }, hideControlStrip: config.alwaysHideControlStrip)
+            TBController.alwaysHideControlStrip = config.alwaysHideControlStrip
+        } catch {
+            print("\(error)")
+        }
     }
 
-    @objc func menuAction() {
+    @objc func toggleCS() {
         TBController.toggleCS()
     }
 
@@ -57,10 +68,8 @@ func typeToWidget(id: String) -> Widget.Type {
         return NextWidget.self
     case "volume_slider":
         return VolumeSliderWidget.self
-    case "volume_up":
-        return VolumeUpWidget.self
-    case "volume_down":
-        return VolumeDownWidget.self
+    case "volume_buttons":
+        return VolumeButtonsWidget.self
     case "flex":
         return FlexWidget.self
     default:
