@@ -1,0 +1,67 @@
+name: CI
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  build:
+    runs-on: macOS-latest
+    env:
+      APP_PATH: /Users/runner/work/Touchy/Touchy/DerivedData/Build/Products/Release/Touchy.app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - uses: actions/cache@v2
+        with:
+          path: ./DerivedData
+          key: deriveddata-${{ hashFiles('**/*') }}
+          restore-keys: |
+            deriveddata-
+
+      - name: Build
+        run: xcodebuild -project ./Touchy.xcodeproj -scheme Touchy -configuration Release -derivedDataPath ./DerivedData
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Touchy.app
+          path: ${{ env.APP_PATH }}
+
+      - name: Install create-dmg
+        run: brew install create-dmg
+
+      - name: Package app
+        run: |
+          mkdir /tmp/install
+          cp -r ${{ env.APP_PATH }} /tmp/install
+
+          create-dmg \
+            --volname "Touchy" \
+            "/tmp/install.dmg" \
+            "/tmp/install"
+
+      - name: Create Short SHA
+        id: shortsha
+        run: echo "::set-output name=value::$(git rev-parse --short HEAD)"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: tags/release-${{ steps.shortsha.outputs.value }}
+          release_name: Release ${{ steps.shortsha.outputs.value }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_path: /tmp/install.dmg
+          asset_name: Touchy.dmg
+          asset_content_type: application/octet-stream
