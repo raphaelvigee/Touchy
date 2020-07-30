@@ -14,7 +14,6 @@ let widgets: [Widget.Type] = [
     PreviousWidget.self,
     PlayPauseWidget.self,
     NextWidget.self,
-    VolumeSliderWidget.self,
     VolumeButtonsWidget.self,
     FlexWidget.self,
 ]
@@ -66,8 +65,6 @@ func typeToWidget(id: String) -> Widget.Type {
         return PlayPauseWidget.self
     case "next":
         return NextWidget.self
-    case "volume_slider":
-        return VolumeSliderWidget.self
     case "volume_buttons":
         return VolumeButtonsWidget.self
     case "flex":

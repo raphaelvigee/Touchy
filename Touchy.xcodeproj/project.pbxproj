@@ -20,11 +20,9 @@
 		EDD4D1E5161BA39F4801ABFF /* PreviousWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D0F654CAAF757DE83E12 /* PreviousWidget.swift */; };
 		EDD4D259DBB7D89134A7EEF1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EDD4D0737DCBE7FAA1276B9D /* .gitignore */; };
 		EDD4D2E7C8EEDA4C0DEE24BC /* VolumeButtonsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D225660B991BE5EF7BF6 /* VolumeButtonsWidget.swift */; };
-		EDD4D30161EF6692EAEFF544 /* ISSoundAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD4DC857B29C995DC0F925A /* ISSoundAdditions.m */; };
 		EDD4D40ADA37DE4B250FD39C /* NextWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D3A318D9516A3B8F6F9C /* NextWidget.swift */; };
 		EDD4D8AF7F4F8DCAA60BE7E0 /* AnchorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D7E2AD3AD71D2681EEA8 /* AnchorWidget.swift */; };
 		EDD4D961ABD5AC8AF9B4BAB2 /* FlexWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4DEC0AA2FC5FA9924B434 /* FlexWidget.swift */; };
-		EDD4DA689C3D9DA7516BC59D /* VolumeSliderWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D93613EC2B5CD04F347E /* VolumeSliderWidget.swift */; };
 		EDD4DC8C9C31652825167C59 /* PlayPauseWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4DA1640A4A3594E1EBB13 /* PlayPauseWidget.swift */; };
 		EDD4DED1246E5AE093BC5626 /* NowPlayingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D2EBA36B5A22B3193D62 /* NowPlayingHelper.swift */; };
 		EDD4DFE1F59D067E1C25C347 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4DFE1C9674F537CD7888D /* Config.swift */; };
@@ -69,16 +67,13 @@
 		167EC34724C9905E009C4647 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = /System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
 		167EC34924C9B068009C4647 /* TouchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarController.swift; sourceTree = "<group>"; };
 		EDD4D0737DCBE7FAA1276B9D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
-		EDD4D08ADFB7B798B8C2CDC6 /* ISSoundAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSoundAdditions.h; sourceTree = "<group>"; };
 		EDD4D0F654CAAF757DE83E12 /* PreviousWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousWidget.swift; sourceTree = "<group>"; };
 		EDD4D225660B991BE5EF7BF6 /* VolumeButtonsWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeButtonsWidget.swift; sourceTree = "<group>"; };
 		EDD4D2EBA36B5A22B3193D62 /* NowPlayingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingHelper.swift; sourceTree = "<group>"; };
 		EDD4D3A318D9516A3B8F6F9C /* NextWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextWidget.swift; sourceTree = "<group>"; };
 		EDD4D4FC3DC1CA6D5E7538D5 /* TouchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchBar.h; sourceTree = "<group>"; };
 		EDD4D7E2AD3AD71D2681EEA8 /* AnchorWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorWidget.swift; sourceTree = "<group>"; };
-		EDD4D93613EC2B5CD04F347E /* VolumeSliderWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeSliderWidget.swift; sourceTree = "<group>"; };
 		EDD4DA1640A4A3594E1EBB13 /* PlayPauseWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayPauseWidget.swift; sourceTree = "<group>"; };
-		EDD4DC857B29C995DC0F925A /* ISSoundAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSoundAdditions.m; sourceTree = "<group>"; };
 		EDD4DDB56B1B27DFE4A303E1 /* MRMediaRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRMediaRemote.h; sourceTree = "<group>"; };
 		EDD4DEC0AA2FC5FA9924B434 /* FlexWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexWidget.swift; sourceTree = "<group>"; };
 		EDD4DFE1C9674F537CD7888D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -198,7 +193,6 @@
 				EDD4D0F654CAAF757DE83E12 /* PreviousWidget.swift */,
 				EDD4D225660B991BE5EF7BF6 /* VolumeButtonsWidget.swift */,
 				EDD4DEC0AA2FC5FA9924B434 /* FlexWidget.swift */,
-				EDD4D93613EC2B5CD04F347E /* VolumeSliderWidget.swift */,
 				EDD4D2EBA36B5A22B3193D62 /* NowPlayingHelper.swift */,
 			);
 			path = Widgets;
@@ -210,8 +204,6 @@
 				167EC34524C8C9D9009C4647 /* Bridging-Header.h */,
 				EDD4D4FC3DC1CA6D5E7538D5 /* TouchBar.h */,
 				EDD4DDB56B1B27DFE4A303E1 /* MRMediaRemote.h */,
-				EDD4D08ADFB7B798B8C2CDC6 /* ISSoundAdditions.h */,
-				EDD4DC857B29C995DC0F925A /* ISSoundAdditions.m */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -357,14 +349,12 @@
 				167EC34A24C9B068009C4647 /* TouchBarController.swift in Sources */,
 				167EC31624C8C6BB009C4647 /* AppDelegate.swift in Sources */,
 				EDD4DFE1F59D067E1C25C347 /* Config.swift in Sources */,
-				EDD4D30161EF6692EAEFF544 /* ISSoundAdditions.m in Sources */,
 				EDD4DC8C9C31652825167C59 /* PlayPauseWidget.swift in Sources */,
 				EDD4D8AF7F4F8DCAA60BE7E0 /* AnchorWidget.swift in Sources */,
 				EDD4D40ADA37DE4B250FD39C /* NextWidget.swift in Sources */,
 				EDD4D1E5161BA39F4801ABFF /* PreviousWidget.swift in Sources */,
 				EDD4D2E7C8EEDA4C0DEE24BC /* VolumeButtonsWidget.swift in Sources */,
 				EDD4D961ABD5AC8AF9B4BAB2 /* FlexWidget.swift in Sources */,
-				EDD4DA689C3D9DA7516BC59D /* VolumeSliderWidget.swift in Sources */,
 				EDD4DED1246E5AE093BC5626 /* NowPlayingHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
