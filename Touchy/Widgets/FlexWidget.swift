@@ -5,10 +5,13 @@
 
 import Foundation
 
-class FlexWidget: BaseWidget, Widget {
-    static var identifier: NSTouchBarItem.Identifier = .flexibleSpace
+class FlexWidget: BaseWidget {
+    required init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable?) {
+        super.init(identifier: identifier, tbc: tbc, args: args)
+        self.identifier = .flexibleSpace
+    }
 
-    func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
-        touchBar.item(forIdentifier: type(of: self).identifier)
+    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+        touchBar.item(forIdentifier: identifier)
     }
 }

@@ -5,16 +5,14 @@
 
 import Foundation
 
-class AnchorWidget: BaseWidget, Widget, NSGestureRecognizerDelegate {
-    static var identifier: NSTouchBarItem.Identifier = NSTouchBarItem.Identifier("com.touchy.anchor")
-
+class AnchorWidget: BaseWidget, NSGestureRecognizerDelegate {
     private var buttonView: NSButton!
 
     private var start: CGFloat = -1
     private var swipeThreshold: CGFloat = 30
 
-    func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
-        let item = NSCustomTouchBarItem(identifier: type(of: self).identifier)
+    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+        let item = NSCustomTouchBarItem(identifier: identifier)
         buttonView = NSButton(title: "⚓", target: self, action: #selector(onClick))
         styleButton()
 

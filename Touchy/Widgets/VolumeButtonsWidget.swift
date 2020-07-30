@@ -36,24 +36,25 @@ func HIDPostAuxKey(key: UInt32) {
     doKey(down: false)
 }
 
-class VolumeButtonsWidget: BaseWidget, Widget {
-    static var identifier: NSTouchBarItem.Identifier = NSTouchBarItem.Identifier("com.touchy.volumebuttons")
-
-    func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
-        let downItem = NSButton(title: "\\/", target: self, action: #selector(down))
-        let upItem = NSButton(title: "/\\", target: self, action: #selector(up))
-
-        let stack = NSStackView(views: [downItem, upItem])
-        stack.spacing = 1
-
-        let item = NSCustomTouchBarItem(identifier: type(of: self).identifier)
-        item.view = stack
+class VolumeUpWidget: BaseWidget {
+    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+        let item = NSCustomTouchBarItem(identifier: identifier)
+        item.view = NSButton(title: "/\\", target: self, action: #selector(up))
 
         return item
     }
 
     @objc func up() {
         HIDPostAuxKey(key: NX_KEYTYPE_SOUND_UP)
+    }
+}
+
+class VolumeDownWidget: BaseWidget {
+    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+        let item = NSCustomTouchBarItem(identifier: identifier)
+        item.view = NSButton(title: "\\/", target: self, action: #selector(down))
+
+        return item
     }
 
     @objc func down() {

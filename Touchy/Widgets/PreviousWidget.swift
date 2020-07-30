@@ -5,11 +5,9 @@
 
 import Foundation
 
-class PreviousWidget: BaseWidget, Widget {
-    static var identifier: NSTouchBarItem.Identifier = NSTouchBarItem.Identifier("com.touchy.previous")
-
-    func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
-        let item = NSCustomTouchBarItem(identifier: type(of: self).identifier)
+class PreviousWidget: BaseWidget {
+    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+        let item = NSCustomTouchBarItem(identifier: identifier)
         item.view = NSButton(title: "<", target: self, action: #selector(action))
         return item
     }

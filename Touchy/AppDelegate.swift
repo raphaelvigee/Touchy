@@ -9,15 +9,6 @@
 import Cocoa
 import SwiftUI
 
-let widgets: [Widget.Type] = [
-    AnchorWidget.self,
-    PreviousWidget.self,
-    PlayPauseWidget.self,
-    NextWidget.self,
-    VolumeButtonsWidget.self,
-    FlexWidget.self,
-]
-
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
@@ -39,10 +30,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         do {
             let config = try decode()
 
-            TBController.makeTouchBar(widgets: config.items.map { typeToWidget(id: $0.type) }, hideControlStrip: config.alwaysHideControlStrip)
+            TBController.makeTouchBar(widgets: config.items, hideControlStrip: config.alwaysHideControlStrip)
             TBController.alwaysHideControlStrip = config.alwaysHideControlStrip
         } catch {
-            print("\(error)")
+            fatalError("\(error)")
         }
     }
 
@@ -52,24 +43,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
-    }
-}
-
-func typeToWidget(id: String) -> Widget.Type {
-    switch id {
-    case "anchor":
-        return AnchorWidget.self
-    case "previous":
-        return PreviousWidget.self
-    case "play":
-        return PlayPauseWidget.self
-    case "next":
-        return NextWidget.self
-    case "volume_buttons":
-        return VolumeButtonsWidget.self
-    case "flex":
-        return FlexWidget.self
-    default:
-        fatalError("invalid type \(id)")
     }
 }

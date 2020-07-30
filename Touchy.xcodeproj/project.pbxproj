@@ -19,6 +19,7 @@
 		167EC34A24C9B068009C4647 /* TouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167EC34924C9B068009C4647 /* TouchBarController.swift */; };
 		EDD4D1E5161BA39F4801ABFF /* PreviousWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D0F654CAAF757DE83E12 /* PreviousWidget.swift */; };
 		EDD4D259DBB7D89134A7EEF1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EDD4D0737DCBE7FAA1276B9D /* .gitignore */; };
+		EDD4D2771D263BCB3B4F55D3 /* StackWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D1223E9702EB3F8A3E54 /* StackWidget.swift */; };
 		EDD4D2E7C8EEDA4C0DEE24BC /* VolumeButtonsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D225660B991BE5EF7BF6 /* VolumeButtonsWidget.swift */; };
 		EDD4D40ADA37DE4B250FD39C /* NextWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D3A318D9516A3B8F6F9C /* NextWidget.swift */; };
 		EDD4D8AF7F4F8DCAA60BE7E0 /* AnchorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D7E2AD3AD71D2681EEA8 /* AnchorWidget.swift */; };
@@ -68,6 +69,7 @@
 		167EC34924C9B068009C4647 /* TouchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarController.swift; sourceTree = "<group>"; };
 		EDD4D0737DCBE7FAA1276B9D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		EDD4D0F654CAAF757DE83E12 /* PreviousWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousWidget.swift; sourceTree = "<group>"; };
+		EDD4D1223E9702EB3F8A3E54 /* StackWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackWidget.swift; sourceTree = "<group>"; };
 		EDD4D225660B991BE5EF7BF6 /* VolumeButtonsWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeButtonsWidget.swift; sourceTree = "<group>"; };
 		EDD4D2EBA36B5A22B3193D62 /* NowPlayingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingHelper.swift; sourceTree = "<group>"; };
 		EDD4D3A318D9516A3B8F6F9C /* NextWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextWidget.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				EDD4D225660B991BE5EF7BF6 /* VolumeButtonsWidget.swift */,
 				EDD4DEC0AA2FC5FA9924B434 /* FlexWidget.swift */,
 				EDD4D2EBA36B5A22B3193D62 /* NowPlayingHelper.swift */,
+				EDD4D1223E9702EB3F8A3E54 /* StackWidget.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				EDD4D2E7C8EEDA4C0DEE24BC /* VolumeButtonsWidget.swift in Sources */,
 				EDD4D961ABD5AC8AF9B4BAB2 /* FlexWidget.swift in Sources */,
 				EDD4DED1246E5AE093BC5626 /* NowPlayingHelper.swift in Sources */,
+				EDD4D2771D263BCB3B4F55D3 /* StackWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,17 +5,15 @@
 
 import Foundation
 
-class PlayPauseWidget: BaseWidget, Widget {
-    static var identifier: NSTouchBarItem.Identifier = NSTouchBarItem.Identifier("com.touchy.playpause")
-
+class PlayPauseWidget: BaseWidget {
     private var item: NSCustomTouchBarItem?
 
-    required init(tbc: TouchBarController) {
-        super.init(tbc: tbc)
+    required init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable?) {
+        super.init(identifier: identifier, tbc: tbc, args: args)
 
         self.registerForNotifications()
 
-        item = NSCustomTouchBarItem(identifier: type(of: self).identifier)
+        item = NSCustomTouchBarItem(identifier: identifier)
 
         self.updateUI()
     }
@@ -28,7 +26,7 @@ class PlayPauseWidget: BaseWidget, Widget {
         )
     }
 
-    func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
         item
     }
 

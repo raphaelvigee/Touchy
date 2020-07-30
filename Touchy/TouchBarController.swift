@@ -20,18 +20,29 @@ extension NSTouchBarItem.Identifier {
 }
 
 protocol Widget {
-    init(tbc: TouchBarController)
+    static var argsType: Optional<Decodable.Type> { get }
 
-    static var identifier: NSTouchBarItem.Identifier { get }
+    var identifier: NSTouchBarItem.Identifier { get }
 
     func item(touchBar: NSTouchBar) -> NSTouchBarItem?
+
+    init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable?)
 }
 
-class BaseWidget: NSObject {
+class BaseWidget: NSObject, Widget {
+    class var argsType: Optional<Decodable.Type> {
+        nil
+    }
+    var identifier: NSTouchBarItem.Identifier
     var tbc: TouchBarController
 
-    required init(tbc: TouchBarController) {
+    required init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable?) {
+        self.identifier = identifier
         self.tbc = tbc
+    }
+
+    func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+        fatalError("item(touchBar:) has not been implemented")
     }
 }
 
@@ -98,16 +109,16 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
     public var alwaysHideControlStrip = false
     public var hideControlStrip = false
 
-    func makeTouchBar(widgets: [Widget.Type], hideControlStrip: Bool) {
+    func makeTouchBar(widgets: [Item], hideControlStrip: Bool) {
         self.hideControlStrip = hideControlStrip
 
         self.widgets = [NSTouchBarItem.Identifier: Widget]()
         var ids = [NSTouchBarItem.Identifier]()
 
-        widgets.forEach { wt in
-            let i = wt.init(tbc: self)
-            let id = type(of: i).identifier
-            self.widgets?[id] = i
+        widgets.enumerated().forEach { (i, item) in
+            let inst = item.instanciate(identifier: NSTouchBarItem.Identifier("com.touchy.\(i)"), tbc: self, args: item.args)
+            let id = inst.identifier
+            self.widgets?[id] = inst
 
             ids.append(id)
         }
