@@ -5,12 +5,10 @@
 
 import Foundation
 
-class PlayPauseWidget: BaseWidget {
-    private var item: NSCustomTouchBarItem?
+class PlayPauseWidget: BaseWidget<NoArgs> {
+    private var item: NSCustomTouchBarItem!
 
-    required init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable?) {
-        super.init(identifier: identifier, tbc: tbc, args: args)
-
+    override func boot() {
         self.registerForNotifications()
 
         item = NSCustomTouchBarItem(identifier: identifier)
@@ -42,7 +40,7 @@ class PlayPauseWidget: BaseWidget {
             view = NSButton(title: "||", target: self, action: #selector(action))
         }
 
-        self.item?.view = view
+        self.item.view = view
     }
 
     @objc private func updateNowPLayingItemView() {

@@ -5,7 +5,7 @@
 
 import Foundation
 
-class NextWidget: BaseWidget {
+class NextWidget: BaseWidget<NoArgs> {
     override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
         let item = NSCustomTouchBarItem(identifier: identifier)
         item.view = NSButton(title: ">", target: self, action: #selector(action))

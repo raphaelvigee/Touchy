@@ -5,7 +5,7 @@
 
 import Foundation
 
-class AnchorWidget: BaseWidget, NSGestureRecognizerDelegate {
+class AnchorWidget: BaseWidget<NoArgs>, NSGestureRecognizerDelegate {
     private var buttonView: NSButton!
 
     private var start: CGFloat = -1

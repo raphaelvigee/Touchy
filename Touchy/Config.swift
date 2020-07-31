@@ -31,7 +31,7 @@ func typeToWidget(id: String) -> Widget.Type {
 
 struct Item: Decodable {
     var type: String
-    var args: Decodable?
+    var args: Decodable
 
     var widgetType: Widget.Type
 
@@ -47,8 +47,10 @@ struct Item: Decodable {
 
         widgetType = typeToWidget(id: type)
 
-        if let at = widgetType.argsType {
-            args = try at.init(from: values.superDecoder(forKey: .args))
+        if values.contains(.args) {
+            args = try widgetType.argsType.init(from: values.superDecoder(forKey: .args))
+        } else {
+            args = widgetType.argsType.init()
         }
     }
 

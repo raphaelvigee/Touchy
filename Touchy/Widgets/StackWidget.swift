@@ -5,34 +5,29 @@
 
 import Foundation
 
-struct StackWidgetArgs: Decodable {
-    var items: [Item]
+struct StackWidgetArgs: WidgetArgs {
+    var items: [Item] = []
+
+    init() {
+
+    }
 }
 
-class StackWidget: BaseWidget {
-    override class var argsType: Optional<Decodable.Type> {
-        get {
-            StackWidgetArgs.self
-        }
+class StackWidget: BaseWidget<StackWidgetArgs> {
+    override class var argsType: WidgetArgs.Type {
+        StackWidgetArgs.self
     }
 
-    private var widgets: [Widget]
+    private var widgets: [Widget]!
 
-    required init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable?) {
-        if let stackArgs = (args as? StackWidgetArgs) {
-            widgets = stackArgs.items.enumerated().map { (i, item) in
-                return item.instantiate(identifier: NSTouchBarItem.Identifier("\(identifier.rawValue).\(i)"), tbc: tbc)
-            }
-        } else {
-            widgets = []
+    override func boot() {
+        widgets = args.items.enumerated().map { (i, item) in
+            return item.instantiate(identifier: NSTouchBarItem.Identifier("\(identifier.rawValue).\(i)"), tbc: tbc)
         }
-
-        super.init(identifier: identifier, tbc: tbc, args: args)
     }
-
 
     override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
-        let stack = NSStackView(views: widgets.compactMap({ w in (w.item(touchBar: touchBar)?.view)}))
+        let stack = NSStackView(views: widgets.compactMap({ w in w.item(touchBar: touchBar)?.view }))
         stack.spacing = 1
 
         let item = NSCustomTouchBarItem(identifier: identifier)

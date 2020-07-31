@@ -19,30 +19,49 @@ extension NSTouchBarItem.Identifier {
     static let Touchy = NSTouchBarItem.Identifier("com.touchy.touchy")
 }
 
+protocol WidgetArgs: Decodable {
+    init()
+}
+
 protocol Widget {
-    static var argsType: Optional<Decodable.Type> { get }
+    static var argsType: WidgetArgs.Type { get }
 
     var identifier: NSTouchBarItem.Identifier { get }
 
     func item(touchBar: NSTouchBar) -> NSTouchBarItem?
 
-    init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable?)
+    init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable)
 }
 
-class BaseWidget: NSObject, Widget {
-    class var argsType: Optional<Decodable.Type> {
-        nil
+class NoArgs: WidgetArgs {
+    required init() {
+
+    }
+}
+
+class BaseWidget<T: Decodable>: NSObject, Widget {
+    class var argsType: WidgetArgs.Type {
+        NoArgs.self
     }
     var identifier: NSTouchBarItem.Identifier
     var tbc: TouchBarController
+    var args: T
 
-    required init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable?) {
+    required init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable) {
         self.identifier = identifier
         self.tbc = tbc
+        self.args = args as! T
+        super.init()
+
+        self.boot()
     }
 
     func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
         fatalError("item(touchBar:) has not been implemented")
+    }
+
+    func boot() {
+        // To override in sub classes
     }
 }
 
