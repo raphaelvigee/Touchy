@@ -17,6 +17,7 @@ extension NSTouchBar.CustomizationIdentifier {
 @available(OSX 10.12.2, *)
 extension NSTouchBarItem.Identifier {
     static let Touchy = NSTouchBarItem.Identifier("com.touchy.touchy")
+    static let ESC = NSTouchBarItem.Identifier("com.touchy.escape")
 }
 
 protocol WidgetArgs: Decodable {
@@ -117,7 +118,6 @@ class TouchBarController: NSResponder, NSTouchBarDelegate {
     private var widgets: [Item]?
     private var idWidgets: [NSTouchBarItem.Identifier: Widget]?
     private var ids: [NSTouchBarItem.Identifier]?
-    private var escapeIdentifier = NSTouchBarItem.Identifier("com.touchy.escape")
 
     override var touchBar: NSTouchBar? {
         willSet {
@@ -138,7 +138,6 @@ class TouchBarController: NSResponder, NSTouchBarDelegate {
 
         self.idWidgets = [NSTouchBarItem.Identifier: Widget]()
         self.ids = [NSTouchBarItem.Identifier]()
-        self.ids?.append(escapeIdentifier)
 
         widgets.enumerated().forEach { (i, item) in
             let inst = item.instantiate(identifier: NSTouchBarItem.Identifier("com.touchy.item\(i)"), tbc: self) as Widget
@@ -167,7 +166,7 @@ class TouchBarController: NSResponder, NSTouchBarDelegate {
         touchBar.delegate = self
         touchBar.customizationIdentifier = .mainTouchBar
         touchBar.defaultItemIdentifiers = ids!
-        touchBar.escapeKeyReplacementItemIdentifier = escapeIdentifier
+        touchBar.escapeKeyReplacementItemIdentifier = .ESC
 
         return touchBar
     }

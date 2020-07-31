@@ -24,6 +24,8 @@ func typeToWidget(id: String) -> Widget.Type {
         return FlexWidget.self
     case "stack":
         return StackWidget.self
+    case "escape":
+        return EscapeWidget.self
     default:
         fatalError("invalid type \(id)")
     }

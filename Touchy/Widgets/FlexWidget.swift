@@ -11,7 +11,6 @@ class FlexWidget: BaseWidget<NoArgs> {
     }
 
     override func getItem(touchBar: NSTouchBar) -> NSTouchBarItem? {
-        return nil
         touchBar.item(forIdentifier: identifier)
     }
 }
