@@ -61,7 +61,7 @@ class BaseWidget<T: Decodable>: NSObject, Widget {
     }
 
     func boot() {
-        // To override in sub classes
+        // To override in sub classes, called after init
     }
 }
 
@@ -113,53 +113,66 @@ class ControlStripButton: NSCustomTouchBarItem, NSGestureRecognizerDelegate {
     }
 }
 
-class TouchBarController: NSObject, NSTouchBarDelegate {
-    private var widgets: [NSTouchBarItem.Identifier: Widget]?
+class TouchBarController: NSResponder, NSTouchBarDelegate {
+    private var widgets: [Item]?
+    private var idWidgets: [NSTouchBarItem.Identifier: Widget]?
+    private var ids: [NSTouchBarItem.Identifier]?
+    override var touchBar: NSTouchBar? {
+        willSet  {
+            if touchBar != nil {
+                dismiss()
+            }
+        }
 
-    private var groupTouchBar: NSTouchBar?
+        didSet {
+            present()
+        }
+    }
+
+    func reload(widgets: [Item], hideControlStrip: Bool) {
+        self.hideControlStrip = hideControlStrip
+
+        self.widgets = widgets
+
+        self.idWidgets = [NSTouchBarItem.Identifier: Widget]()
+        self.ids = [NSTouchBarItem.Identifier]()
+
+        widgets.enumerated().forEach { (i, item) in
+            let inst = item.instantiate(identifier: NSTouchBarItem.Identifier("com.touchy.item\(i)"), tbc: self) as Widget
+            let id = inst.identifier
+            self.idWidgets?[id] = inst
+
+            ids?.append(id)
+        }
+
+        self.touchBar = nil
+    }
+
     private var isVisible: Bool {
-        if groupTouchBar == nil {
+        if touchBar == nil {
             return false
         }
 
-        return groupTouchBar?.isVisible ?? false
+        return touchBar?.isVisible ?? false
     }
 
     public var alwaysHideControlStrip = false
     public var hideControlStrip = false
 
-    func makeTouchBar(widgets: [Item], hideControlStrip: Bool) {
-        self.hideControlStrip = hideControlStrip
+    override func makeTouchBar() -> NSTouchBar? {
+        let touchBar = NSTouchBar()
+        touchBar.delegate = self
+        touchBar.customizationIdentifier = .mainTouchBar
+        touchBar.defaultItemIdentifiers = ids!
 
-        if groupTouchBar != nil {
-            dismiss()
-        }
-
-        self.widgets = [NSTouchBarItem.Identifier: Widget]()
-        var ids = [NSTouchBarItem.Identifier]()
-
-        widgets.enumerated().forEach { (i, item) in
-            let inst = item.instantiate(identifier: NSTouchBarItem.Identifier("com.touchy.item\(i)"), tbc: self)
-            let id = inst.identifier
-            self.widgets?[id] = inst
-
-            ids.append(id)
-        }
-
-        groupTouchBar = NSTouchBar()
-        groupTouchBar?.delegate = self
-        groupTouchBar?.customizationIdentifier = .mainTouchBar
-        groupTouchBar?.defaultItemIdentifiers = ids
-
-        showControlStripIcon()
-        present()
+        return touchBar
     }
 
     func touchBar(
             _ touchBar: NSTouchBar,
             makeItemForIdentifier identifier: NSTouchBarItem.Identifier
     ) -> NSTouchBarItem? {
-        if let w = widgets?[identifier] {
+        if let w = idWidgets?[identifier] {
             return w.item(touchBar: touchBar)
         }
 
@@ -198,17 +211,17 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
 
     @objc func dismiss() {
         if #available(macOS 10.14, *) {
-            NSTouchBar.dismissSystemModalTouchBar(groupTouchBar)
+            NSTouchBar.dismissSystemModalTouchBar(touchBar)
         } else {
-            NSTouchBar.dismissSystemModalFunctionBar(groupTouchBar)
+            NSTouchBar.dismissSystemModalFunctionBar(touchBar)
         }
     }
 
     @objc func minimize() {
         if #available(macOS 10.14, *) {
-            NSTouchBar.minimizeSystemModalTouchBar(groupTouchBar)
+            NSTouchBar.minimizeSystemModalTouchBar(touchBar)
         } else {
-            NSTouchBar.minimizeSystemModalFunctionBar(groupTouchBar)
+            NSTouchBar.minimizeSystemModalFunctionBar(touchBar)
         }
     }
 
@@ -223,9 +236,9 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
 
     private func presentWithPlacement(placement: Int64) {
         if #available(macOS 10.14, *) {
-            NSTouchBar.presentSystemModalTouchBar(groupTouchBar, placement: placement, systemTrayItemIdentifier: .Touchy)
+            NSTouchBar.presentSystemModalTouchBar(touchBar, placement: placement, systemTrayItemIdentifier: .Touchy)
         } else {
-            NSTouchBar.presentSystemModalFunctionBar(groupTouchBar, placement: placement, systemTrayItemIdentifier: .Touchy)
+            NSTouchBar.presentSystemModalFunctionBar(touchBar, placement: placement, systemTrayItemIdentifier: .Touchy)
         }
     }
 }

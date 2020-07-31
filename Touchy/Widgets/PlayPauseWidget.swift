@@ -6,12 +6,13 @@
 import Foundation
 
 class PlayPauseWidget: BaseWidget<NoArgs> {
-    private var item: NSCustomTouchBarItem!
+    private var tbItem: NSCustomTouchBarItem!
 
     override func boot() {
         self.registerForNotifications()
 
-        item = NSCustomTouchBarItem(identifier: identifier)
+        tbItem = NSCustomTouchBarItem(identifier: identifier)
+        tbItem.view = NSButton(title: "", target: self, action: #selector(action))
 
         self.updateUI()
     }
@@ -25,7 +26,7 @@ class PlayPauseWidget: BaseWidget<NoArgs> {
     }
 
     override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
-        item
+        return tbItem
     }
 
     @objc func action() {
@@ -33,14 +34,7 @@ class PlayPauseWidget: BaseWidget<NoArgs> {
     }
 
     func updateUI() {
-        var view: NSButton
-        if !NowPlayingHelper.shared.isPlaying {
-            view = NSButton(title: "|>", target: self, action: #selector(action))
-        } else {
-            view = NSButton(title: "||", target: self, action: #selector(action))
-        }
-
-        self.item.view = view
+        (tbItem.view as! NSButton).title = NowPlayingHelper.shared.isPlaying ? "||" : "|>"
     }
 
     @objc private func updateNowPLayingItemView() {

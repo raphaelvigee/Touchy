@@ -61,8 +61,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             let config = try decode(encodedYAML: configStr)
 
-            TBController.makeTouchBar(widgets: config.items, hideControlStrip: config.alwaysHideControlStrip)
             TBController.alwaysHideControlStrip = config.alwaysHideControlStrip
+            TBController.reload(widgets: config.items, hideControlStrip: config.alwaysHideControlStrip)
         } catch {
             print("\(error)")
         }
