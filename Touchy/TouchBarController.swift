@@ -68,9 +68,9 @@ class BaseWidget<T: Decodable>: NSObject, Widget {
 class ControlStripButton: NSCustomTouchBarItem, NSGestureRecognizerDelegate {
     private var tbc: TouchBarController!
 
-    init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController) {
+    init(tbc: TouchBarController) {
         self.tbc = tbc
-        super.init(identifier: identifier)
+        super.init(identifier: .Touchy)
 
         let view = NSButton(title: "🦄", target: self, action: #selector(controlStripIconClick))
 
@@ -131,11 +131,15 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
     func makeTouchBar(widgets: [Item], hideControlStrip: Bool) {
         self.hideControlStrip = hideControlStrip
 
+        if groupTouchBar != nil {
+            dismiss()
+        }
+
         self.widgets = [NSTouchBarItem.Identifier: Widget]()
         var ids = [NSTouchBarItem.Identifier]()
 
         widgets.enumerated().forEach { (i, item) in
-            let inst = item.instantiate(identifier: NSTouchBarItem.Identifier("com.touchy.\(i)"), tbc: self)
+            let inst = item.instantiate(identifier: NSTouchBarItem.Identifier("com.touchy.item\(i)"), tbc: self)
             let id = inst.identifier
             self.widgets?[id] = inst
 
@@ -178,7 +182,7 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
     func showControlStripIcon() {
         DFRSystemModalShowsCloseBoxWhenFrontMost(false)
 
-        let touchy = ControlStripButton(identifier: .Touchy, tbc: self)
+        let touchy = ControlStripButton(tbc: self)
 
         NSTouchBarItem.removeSystemTrayItem(touchy)
         NSTouchBarItem.addSystemTrayItem(touchy)
