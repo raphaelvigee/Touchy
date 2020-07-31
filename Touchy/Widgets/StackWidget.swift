@@ -21,7 +21,7 @@ class StackWidget: BaseWidget {
     required init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable?) {
         if let stackArgs = (args as? StackWidgetArgs) {
             widgets = stackArgs.items.enumerated().map { (i, item) in
-                return item.instanciate(identifier: NSTouchBarItem.Identifier("\(identifier.rawValue).\(i)"), tbc: tbc, args: item.args)
+                return item.instantiate(identifier: NSTouchBarItem.Identifier("\(identifier.rawValue).\(i)"), tbc: tbc)
             }
         } else {
             widgets = []

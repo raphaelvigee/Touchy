@@ -24,6 +24,7 @@
 		EDD4D40ADA37DE4B250FD39C /* NextWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D3A318D9516A3B8F6F9C /* NextWidget.swift */; };
 		EDD4D8AF7F4F8DCAA60BE7E0 /* AnchorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D7E2AD3AD71D2681EEA8 /* AnchorWidget.swift */; };
 		EDD4D961ABD5AC8AF9B4BAB2 /* FlexWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4DEC0AA2FC5FA9924B434 /* FlexWidget.swift */; };
+		EDD4DC58EBF440513027F0EF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D70271D395631930F29E /* README.md */; };
 		EDD4DC8C9C31652825167C59 /* PlayPauseWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4DA1640A4A3594E1EBB13 /* PlayPauseWidget.swift */; };
 		EDD4DED1246E5AE093BC5626 /* NowPlayingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D2EBA36B5A22B3193D62 /* NowPlayingHelper.swift */; };
 		EDD4DFE1F59D067E1C25C347 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4DFE1C9674F537CD7888D /* Config.swift */; };
@@ -74,6 +75,7 @@
 		EDD4D2EBA36B5A22B3193D62 /* NowPlayingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingHelper.swift; sourceTree = "<group>"; };
 		EDD4D3A318D9516A3B8F6F9C /* NextWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextWidget.swift; sourceTree = "<group>"; };
 		EDD4D4FC3DC1CA6D5E7538D5 /* TouchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchBar.h; sourceTree = "<group>"; };
+		EDD4D70271D395631930F29E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EDD4D7E2AD3AD71D2681EEA8 /* AnchorWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorWidget.swift; sourceTree = "<group>"; };
 		EDD4DA1640A4A3594E1EBB13 /* PlayPauseWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayPauseWidget.swift; sourceTree = "<group>"; };
 		EDD4DDB56B1B27DFE4A303E1 /* MRMediaRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRMediaRemote.h; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				167EC31324C8C6BB009C4647 /* Products */,
 				167EC34624C9905E009C4647 /* Frameworks */,
 				EDD4D0737DCBE7FAA1276B9D /* .gitignore */,
+				EDD4D70271D395631930F29E /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -360,6 +363,7 @@
 				EDD4D961ABD5AC8AF9B4BAB2 /* FlexWidget.swift in Sources */,
 				EDD4DED1246E5AE093BC5626 /* NowPlayingHelper.swift in Sources */,
 				EDD4D2771D263BCB3B4F55D3 /* StackWidget.swift in Sources */,
+				EDD4DC58EBF440513027F0EF /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

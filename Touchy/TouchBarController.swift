@@ -116,7 +116,7 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
         var ids = [NSTouchBarItem.Identifier]()
 
         widgets.enumerated().forEach { (i, item) in
-            let inst = item.instanciate(identifier: NSTouchBarItem.Identifier("com.touchy.\(i)"), tbc: self, args: item.args)
+            let inst = item.instantiate(identifier: NSTouchBarItem.Identifier("com.touchy.\(i)"), tbc: self)
             let id = inst.identifier
             self.widgets?[id] = inst
 

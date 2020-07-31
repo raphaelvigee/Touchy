@@ -52,7 +52,7 @@ struct Item: Decodable {
         }
     }
 
-    func instanciate(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable?) -> Widget {
+    func instantiate(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController) -> Widget {
         let t = typeToWidget(id: type)
 
         return t.init(identifier: identifier, tbc: tbc, args: args)
@@ -64,25 +64,7 @@ struct Config: Decodable {
     var items: [Item]
 }
 
-func decode() throws -> Config {
-    let encodedYAML = """
-                      alwaysHideControlStrip: true
-                      items:
-                      - type: "anchor"
-                      - type: "flex"
-                      - type: "stack"
-                        with:
-                          items:
-                            - type: "previous"
-                            - type: "play"
-                            - type: "next"
-                      - type: "stack"
-                        with:
-                          items:
-                            - type: "volume_down"
-                            - type: "volume_up"
-                      """
-
+func decode(encodedYAML: String) throws -> Config {
     let decoder = YAMLDecoder()
 
     return try decoder.decode(Config.self, from: encodedYAML)
