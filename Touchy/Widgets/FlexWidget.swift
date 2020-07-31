@@ -10,7 +10,7 @@ class FlexWidget: BaseWidget<NoArgs> {
         self.identifier = .flexibleSpace
     }
 
-    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+    override func getItem(touchBar: NSTouchBar) -> NSTouchBarItem? {
         return nil
         touchBar.item(forIdentifier: identifier)
     }

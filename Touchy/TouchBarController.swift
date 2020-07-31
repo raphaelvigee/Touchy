@@ -28,9 +28,9 @@ protocol Widget {
 
     var identifier: NSTouchBarItem.Identifier { get }
 
-    func item(touchBar: NSTouchBar) -> NSTouchBarItem?
+    func getItem(touchBar: NSTouchBar) -> NSTouchBarItem?
 
-    init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable)
+    init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: WidgetArgs)
 }
 
 class NoArgs: WidgetArgs {
@@ -39,15 +39,15 @@ class NoArgs: WidgetArgs {
     }
 }
 
-class BaseWidget<T: Decodable>: NSObject, Widget {
+class BaseWidget<T: WidgetArgs>: NSObject, Widget {
     class var argsType: WidgetArgs.Type {
-        NoArgs.self
+        T.self
     }
     var identifier: NSTouchBarItem.Identifier
     var tbc: TouchBarController
     var args: T
 
-    required init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: Decodable) {
+    required init(identifier: NSTouchBarItem.Identifier, tbc: TouchBarController, args: WidgetArgs) {
         self.identifier = identifier
         self.tbc = tbc
         self.args = args as! T
@@ -56,7 +56,7 @@ class BaseWidget<T: Decodable>: NSObject, Widget {
         self.boot()
     }
 
-    func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+    func getItem(touchBar: NSTouchBar) -> NSTouchBarItem? {
         fatalError("item(touchBar:) has not been implemented")
     }
 
@@ -117,8 +117,10 @@ class TouchBarController: NSResponder, NSTouchBarDelegate {
     private var widgets: [Item]?
     private var idWidgets: [NSTouchBarItem.Identifier: Widget]?
     private var ids: [NSTouchBarItem.Identifier]?
+    private var escapeIdentifier = NSTouchBarItem.Identifier("com.touchy.escape")
+
     override var touchBar: NSTouchBar? {
-        willSet  {
+        willSet {
             if touchBar != nil {
                 dismiss()
             }
@@ -136,6 +138,7 @@ class TouchBarController: NSResponder, NSTouchBarDelegate {
 
         self.idWidgets = [NSTouchBarItem.Identifier: Widget]()
         self.ids = [NSTouchBarItem.Identifier]()
+        self.ids?.append(escapeIdentifier)
 
         widgets.enumerated().forEach { (i, item) in
             let inst = item.instantiate(identifier: NSTouchBarItem.Identifier("com.touchy.item\(i)"), tbc: self) as Widget
@@ -164,6 +167,7 @@ class TouchBarController: NSResponder, NSTouchBarDelegate {
         touchBar.delegate = self
         touchBar.customizationIdentifier = .mainTouchBar
         touchBar.defaultItemIdentifiers = ids!
+        touchBar.escapeKeyReplacementItemIdentifier = escapeIdentifier
 
         return touchBar
     }
@@ -173,7 +177,7 @@ class TouchBarController: NSResponder, NSTouchBarDelegate {
             makeItemForIdentifier identifier: NSTouchBarItem.Identifier
     ) -> NSTouchBarItem? {
         if let w = idWidgets?[identifier] {
-            return w.item(touchBar: touchBar)
+            return w.getItem(touchBar: touchBar)
         }
 
         return nil

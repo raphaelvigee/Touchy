@@ -37,7 +37,7 @@ func HIDPostAuxKey(key: UInt32) {
 }
 
 class VolumeUpWidget: BaseWidget<NoArgs> {
-    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+    override func getItem(touchBar: NSTouchBar) -> NSTouchBarItem? {
         let item = NSCustomTouchBarItem(identifier: identifier)
         item.view = NSButton(title: "/\\", target: self, action: #selector(up))
 
@@ -50,7 +50,7 @@ class VolumeUpWidget: BaseWidget<NoArgs> {
 }
 
 class VolumeDownWidget: BaseWidget<NoArgs> {
-    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+    override func getItem(touchBar: NSTouchBar) -> NSTouchBarItem? {
         let item = NSCustomTouchBarItem(identifier: identifier)
         item.view = NSButton(title: "\\/", target: self, action: #selector(down))
 

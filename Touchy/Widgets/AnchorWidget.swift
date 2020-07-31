@@ -11,7 +11,7 @@ class AnchorWidget: BaseWidget<NoArgs>, NSGestureRecognizerDelegate {
     private var start: CGFloat = -1
     private var swipeThreshold: CGFloat = 30
 
-    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+    override func getItem(touchBar: NSTouchBar) -> NSTouchBarItem? {
         let item = NSCustomTouchBarItem(identifier: identifier)
         buttonView = NSButton(title: "⚓", target: self, action: #selector(onClick))
         styleButton()

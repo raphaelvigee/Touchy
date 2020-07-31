@@ -14,10 +14,6 @@ struct StackWidgetArgs: WidgetArgs {
 }
 
 class StackWidget: BaseWidget<StackWidgetArgs> {
-    override class var argsType: WidgetArgs.Type {
-        StackWidgetArgs.self
-    }
-
     private var widgets: [Widget]!
 
     override func boot() {
@@ -26,8 +22,8 @@ class StackWidget: BaseWidget<StackWidgetArgs> {
         }
     }
 
-    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
-        let stack = NSStackView(views: widgets.compactMap({ w in w.item(touchBar: touchBar)?.view }))
+    override func getItem(touchBar: NSTouchBar) -> NSTouchBarItem? {
+        let stack = NSStackView(views: widgets.compactMap({ w in w.getItem(touchBar: touchBar)?.view }))
         stack.spacing = 1
 
         let item = NSCustomTouchBarItem(identifier: identifier)

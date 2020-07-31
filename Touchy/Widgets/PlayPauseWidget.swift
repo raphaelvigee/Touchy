@@ -25,7 +25,7 @@ class PlayPauseWidget: BaseWidget<NoArgs> {
         )
     }
 
-    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+    override func getItem(touchBar: NSTouchBar) -> NSTouchBarItem? {
         return tbItem
     }
 

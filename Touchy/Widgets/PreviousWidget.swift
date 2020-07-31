@@ -6,7 +6,7 @@
 import Foundation
 
 class PreviousWidget: BaseWidget<NoArgs> {
-    override func item(touchBar: NSTouchBar) -> NSTouchBarItem? {
+    override func getItem(touchBar: NSTouchBar) -> NSTouchBarItem? {
         let item = NSCustomTouchBarItem(identifier: identifier)
         item.view = NSButton(title: "<", target: self, action: #selector(action))
         return item

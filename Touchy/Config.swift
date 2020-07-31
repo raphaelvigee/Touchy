@@ -31,7 +31,7 @@ func typeToWidget(id: String) -> Widget.Type {
 
 struct Item: Decodable {
     var type: String
-    var args: Decodable
+    var args: WidgetArgs
 
     var widgetType: Widget.Type
 
