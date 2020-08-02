@@ -5,6 +5,27 @@
 
 import Foundation
 
+protocol KeyPress {
+    var keyCode: CGKeyCode { get }
+    func send()
+}
+
+struct GenericKeyPress: KeyPress {
+    var keyCode: CGKeyCode
+}
+
+extension KeyPress {
+    func send() {
+        let src = CGEventSource(stateID: .hidSystemState)
+        let keyDown = CGEvent(keyboardEventSource: src, virtualKey: keyCode, keyDown: true)
+        let keyUp = CGEvent(keyboardEventSource: src, virtualKey: keyCode, keyDown: false)
+
+        let loc: CGEventTapLocation = .cghidEventTap
+        keyDown?.post(tap: loc)
+        keyUp?.post(tap: loc)
+    }
+}
+
 class EscWidgetButton: NSButton {
     override open var intrinsicContentSize: NSSize {
         var size = super.intrinsicContentSize
@@ -30,6 +51,6 @@ class EscapeWidget: BaseWidget<NoArgs> {
     }
 
     @objc func esc() {
-        print("BITE")
+        GenericKeyPress(keyCode: CGKeyCode(53)).send()
     }
 }
